@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] SceneAsset[] levels;
     
-    public void GameStart(int level)
+    public void GameLevel(int level)
     {
         if (level <= 0) 
             level = 1;
