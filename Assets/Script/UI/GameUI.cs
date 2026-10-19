@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
@@ -26,4 +27,23 @@ public class GameUI : MonoBehaviour
     
     public GameObject GetOutcomePanel() => outcomePanel;
     public Text GetOutcomeScore() => outcomeScoreText;
+    
+    
+    // UI Button Used
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("Retry");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+        print("Quit Game");
+    }
+
+    public void Home()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
