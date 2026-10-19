@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -15,9 +16,23 @@ public class GameManager : MonoBehaviour
     
     // Private
     int score;
+    
     Text outcomeText;
+    Text scoreText;
     
+    GameObject outcomePanel;
+    Text outcomeScore;
     
+    // === Life Cycle === //
+    void Awake()
+    {
+        outcomeText = UI.GetOutcomeText();
+        scoreText = UI.GetScoreText();
+        
+        outcomePanel = UI.GetOutcomePanel();
+        outcomeScore = UI.GetOutcomeScore();
+    }
+
     // === API === //
     public void OutcomeActions()
     {
@@ -43,5 +58,13 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
         UI.UpdateScoreUI(score);
+    }
+
+    public void GameResult()
+    {
+        outcomeScore.text = scoreText.text;
+        
+        scoreText.gameObject.SetActive(false);
+        outcomePanel.SetActive(true);
     }
 }
