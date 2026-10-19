@@ -4,14 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] SceneAsset[] levels;
-    
-    public void GameLevel(int level)
+    public void GameLevel(string sceneName)
     {
-        if (level <= 0) 
-            level = 1;
-        
-        SceneManager.LoadScene(levels[level-1].name);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void GameQuit()
