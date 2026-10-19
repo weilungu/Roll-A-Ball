@@ -13,4 +13,10 @@ public class MainMenu : MonoBehaviour
         
         SceneManager.LoadScene(levels[level-1].name);
     }
+
+    public void GameQuit()
+    {
+        Application.Quit();
+        print("Game Quit!");
+    }
 }
